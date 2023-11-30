@@ -1,0 +1,24 @@
+﻿<Window x:Class="WpfApp11.View.Data"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp11.View" xmlns:viewmodel="clr-namespace:WpfApp11.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:MainWindowViewModel}"
+        mc:Ignorable="d"
+        Title="Окно пользователей" Height="450" Width="1000" Style="{DynamicResource MaterialDesignWindow}">
+    <Grid Style="{DynamicResource GridStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock FontSize="20" Margin="10" FontWeight="Bold" Style="{DynamicResource TextBlockStyle}"/>
+        <ListView ItemsSource="{Binding Users}" Grid.Row="1" Style="{DynamicResource ListViewStyle}">
+        </ListView>
+        <StackPanel  Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Row="2" Cursor="">
+            <Button Command="{Binding EditCommand}" Content="Редактировать" Cursor="Hand" Style="{DynamicResource ButtonStyle}"/>
+            <Button Command="{Binding SettingsCommand}" Content="Настройки" Cursor="Hand" Style="{DynamicResource ButtonStyle}"/>
+            <Button Command="{Binding DeleteCommand}" Content="Удалить" Cursor="Hand" Style="{DynamicResource ButtonStyle}"/>
+        </StackPanel>
+    </Grid>
+</Window>

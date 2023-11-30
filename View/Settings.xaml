@@ -1,0 +1,38 @@
+﻿<Window x:Class="WpfApp11.View.Settings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp11.View" xmlns:viewmodel="clr-namespace:WpfApp11.ViewModel" d:DataContext="d:DesignInstance Type=viewmodel:MainWindowViewModel"
+        mc:Ignorable="d"
+        Title="Settings" Height="300" Width="500" Background="LightGray">
+    <Grid Style="{DynamicResource GridStyle}" Grid.Column="1">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF2281D1"/>
+                <GradientStop Color="#FF34268A" Offset="1"/>
+                <GradientStop Color="#FFD0C8D6" Offset="0.546"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <!-- Устанавливаем минимальную ширину для левой колонки -->
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Тема" HorizontalAlignment="Center" FontSize="20" Margin="10" FontWeight="Bold" Style="{DynamicResource TextBlockStyle}" Background="{x:Null}"/>
+        <!-- Sidebar с цветными кнопками -->
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+
+            <Button  Command="{Binding LightThemeCommand}" HorizontalContentAlignment="Center"  Foreground="White" Height="53" Width="169" Background="Transparent" BorderBrush="Transparent" Margin="10">
+                <Border   CornerRadius="5" BorderThickness="0" BorderBrush="White">
+                    <TextBlock Padding="5" FontSize="20">Яркая тема</TextBlock>
+                </Border>
+            </Button>
+
+            <Button Command="{Binding DarkThemeCommand}" HorizontalContentAlignment="Center"  Foreground="White" Height="53" Width="163" HorizontalAlignment="Left" Background="Transparent" BorderBrush="Transparent" Margin="10">
+                <Border CornerRadius="5">
+                    <TextBlock Padding="5" FontSize="20">Мрачная тема</TextBlock>
+                </Border>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>
